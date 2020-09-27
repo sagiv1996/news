@@ -1,0 +1,31 @@
+{
+  "name": "news",
+  "short_name": "Free  News",
+  "version": "1.0.0",
+  "description": "A web-based system is also adapted for telephones for tracking news",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@growthbunker/vueflags": "^0.1.9",
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/onesignal": "^3.0.0-beta.16",
+    "@nuxtjs/pwa": "^3.0.2",
+    "core-js": "^3.6.5",
+    "nuxt": "^2.14.5",
+    "nuxt-i18n": "^6.15.1",
+    "swiper": "^6.2.0",
+    "vue-awesome-swiper": "^4.1.1",
+    "vue-country-flag": "^2.0.1",
+    "vue-marquee-text-component": "^1.1.1",
+    "vue-slick-carousel": "^1.0.6",
+    "vue-social-sharing": "^3.0.0-beta.11"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.11.2"
+  }
+}

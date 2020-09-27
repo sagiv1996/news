@@ -1,0 +1,13 @@
+{
+    "search": "keresés",
+    "publishedAt":"megjelent At",
+    "open": "nyitva",
+    "business": "üzleti",
+    "entertainment": "szórakozás",
+    "general": "Tábornok",
+    "health":"Egészség",
+    "science": "tudomány",
+    "sports": "sport",
+    "technology": "technológia",
+    "changeLanguage": "Válts nyelvet"
+}

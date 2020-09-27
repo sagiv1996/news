@@ -1,0 +1,271 @@
+[
+    {
+        "id": 0,
+        "country": "il",
+        "text": "Israel"
+    },
+    {
+        "id": 1,
+        "country": "us",
+        "text": "United States of America (the)"
+    },
+    {
+        "id": 2,
+        "country": "ae",
+        "text": "United Arab Emirates"
+    },
+    {
+        "id": 3,
+        "country": "ar",
+        "text": "Argentina"
+    },
+    {
+        "id": 4,
+        "country": "at",
+        "text": "Austria"
+    },
+    {
+        "id": 5,
+        "country": "au",
+        "text": "Australia"
+    },
+    {
+        "id": 6,
+        "country": "be",
+        "text": "Belgium"
+    },
+    {
+        "id": 7,
+        "country": "bg",
+        "text": "Bulgaria"
+    },
+    {
+        "id": 8,
+        "country": "br",
+        "text": "Brazil"
+    },
+    {
+        "id": 9,
+        "country": "ca",
+        "text": "Canada"
+    },
+    {
+        "id": 10,
+        "country": "ch",
+        "text": "Switzerland"
+    },
+    {
+        "id": 11,
+        "country": "cn",
+        "text": "China"
+    },
+    {
+        "id": 12,
+        "country": "co",
+        "text": "Colombia"
+    },
+    {
+        "id": 13,
+        "country": "cu",
+        "text": "Cuba"
+    },
+    {
+        "id": 14,
+        "country": "cz",
+        "text": "Czechia"
+    },
+    {
+        "id": 15,
+        "country": "de",
+        "text": "Germany"
+    },
+    {
+        "id": 16,
+        "country": "eg",
+        "text": "Egypt"
+    },
+    {
+        "id": 17,
+        "country": "Fr",
+        "text": "France"
+    },
+    {
+        "id": 18,
+        "country": "gb",
+        "text": "United Kingdom of Great Britain and Northern Ireland "
+    },
+    {
+        "id": 19,
+        "country": "gr",
+        "text": "Greece"
+    },
+    {
+        "id": 20,
+        "country": "hk",
+        "text": "Hong Kong"
+    },
+    {
+        "id": 21,
+        "country": "hu",
+        "text": "Hungary"
+    },
+    {
+        "id": 22,
+        "country": "id",
+        "text": "Indonesia"
+    },
+    {
+        "id": 23,
+        "country": "ie",
+        "text": "Ireland"
+    },
+    {
+        "id": 24,
+        "country": "in",
+        "text": "India"
+    },
+    {
+        "id": 25,
+        "country": "it",
+        "text": "Italy"
+    },
+    {
+        "id":26,
+        "country": "jp",
+        "text":"Japan"
+    },
+    {
+        "id":27,
+        "country": "kr",
+        "text":"Korea (the Republic of)"
+    },
+    {"id":28,
+    "country":"lt",
+    "text":"Lithuania"
+    },
+    {
+        "id":29,
+        "country": "lv",
+        "text":"Latvia"
+    },
+    {
+        "id": 30,
+        "country":"ma",
+        "text":"Morocco"
+    },
+    {
+        "id":31,
+        "country":"mx",
+        "text":"Mexico"
+    },
+    {
+        "id": 32,
+        "country":"ml",
+        "text":"Malaysia"
+    },
+    {
+        "id": 33,
+        "country":"ng",
+        "text":"Nigeria"
+    },
+    {
+        "id": 34,
+        "country":"nl",
+        "text":"Netherlands (the)"
+    },
+    {
+        "id":35,
+        "country":"no",
+        "text":"Norway"
+    },
+    {
+        "id":36,
+        "country": "nz",
+        "text":"New Zealand"
+    },
+    {
+        "id":37,
+        "country":"ph",
+        "text":"Philippines (the)"
+    },
+    {
+        "id":38,
+        "country":"pl",
+        "text":"Poland"
+    },
+    {
+        "id":39,
+        "country":"pt",
+        "text":"Portugal"
+    },
+    {
+    "id":40,
+    "country":"ro",
+    "text":"Romania"
+    },
+    {
+        "id":41,
+        "country":"rs",
+        "text":"Serbia"
+    },
+    {
+        "id":41,
+        "country":"ru",
+        "text":"Russian Federation (the)"
+    },
+    {
+        "id":42,
+        "country":"sa",
+        "text":"Saudi Arabia"
+    },
+    {
+        "id":43,
+        "country":"se",
+        "text":"Sweden"
+    },
+    {
+        "id":44,
+        "country": "sg",
+        "text":"Singapore"
+    },
+    {
+        "id":45,
+        "country":"si",
+        "text":"Slovenia"
+    },
+    {
+        "id":46,
+        "country":"sk",
+        "text":"Slovakia"
+    },
+    {
+        "id":47,
+        "country":"th",
+        "text":"Thailand"
+    },
+    {
+        "id":48,
+        "country":"tr",
+        "text":"Turkey"
+    },
+    {
+        "id":49,
+        "country":"tw",
+        "text":"Taiwan (Province of China)"
+    },
+    {
+        "id":50,
+        "country":"ua",
+        "text":"Ukraine"
+    },
+    {
+        "id":51,
+        "country":"ve",
+        "text":"Venezuela (Bolivarian Republic of)"
+    },
+    {
+        "id":52,
+        "country":"za",
+        "text":"South Africa"
+    }
+]
