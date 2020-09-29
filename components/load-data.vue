@@ -121,7 +121,6 @@ export default {
     this.category = localStorage.getItem("category")
       ? localStorage.getItem("category")
       : "general";
-      alert("beforemount")
   },
 };
 </script>
