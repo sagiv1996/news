@@ -48,7 +48,7 @@
     </client-only>
 
     <v-alert type="error" :value="true" v-else-if="$fetchState.error"
-      >error load data</v-alert
+      >error load data + {{$fetchState.error}}</v-alert
     >
     <v-row
       v-else-if="data.status === 'ok' && data.articles && data.totalResults > 0"
@@ -65,7 +65,7 @@
         <watch-article :article="article" />
       </v-col>
     </v-row>
-    <v-row v-else-if="data.totalResults === 0">
+    <v-row v-else>
       <v-col>
         <v-alert type="info" :value="true" class="text-left"
           >No results were found for the values ​​you searched for</v-alert
@@ -97,7 +97,7 @@ export default {
     if (this.category) {
       const url = `&pageSize=100&country=${this.$i18n.locale}&category=${this.category}`;
       const data = await this.$axios.$get(this.$axios.defaults.baseURL + url);
-      alert(JSON.stringify(data))
+      console.log(data)
       this.data = data;
       this.string = null;
     }
