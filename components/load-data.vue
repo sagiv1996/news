@@ -114,7 +114,6 @@ export default {
     },
     updateLocal() {
       localStorage.setItem("category", this.category);
-      alert("locale call to fetch")
       this.$fetch();
     },
   },
@@ -122,6 +121,7 @@ export default {
     this.category = localStorage.getItem("category")
       ? localStorage.getItem("category")
       : "general";
+      alert("beforemount")
   },
 };
 </script>
