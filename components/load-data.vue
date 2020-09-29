@@ -6,7 +6,7 @@
           v-model="category"
           center-active
           active-class="primary--text"
-          @change="[updateLocal, $fetch()]"
+          @change="updateLocal"
           :mandatory="string == null"
         >
           <v-chip
@@ -114,6 +114,8 @@ export default {
     },
     updateLocal() {
       localStorage.setItem("category", this.category);
+      alert("locale call to fetch")
+      this.$fetch();
     },
   },
   beforeMount() {
