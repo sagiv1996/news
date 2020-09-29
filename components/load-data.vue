@@ -6,7 +6,7 @@
           v-model="category"
           center-active
           active-class="primary--text"
-          @change="updateLocal"
+          @change="[updateLocal, $fetch()]"
           :mandatory="string == null"
         >
           <v-chip
@@ -102,13 +102,6 @@ export default {
     }
   },
   methods: {
-    async loadData(){
-      const url = `&pageSize=100&country=${this.$i18n.locale}&category=${this.category}`;
-      const data = await this.$axios.$get(url);
-      this.data = data;
-      this.string = null;
-    }
-    ,
     async search() {
       if (this.string) {
         this.$fetchState.pending = true;
@@ -121,7 +114,7 @@ export default {
     },
     updateLocal() {
       localStorage.setItem("category", this.category);
-      this.loadData()
+      this.$fetch();
     },
   },
   beforeMount() {
