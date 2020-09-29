@@ -22,7 +22,7 @@ export default {
   plugins: [
     '@/plugins/rtl.js',
     '@/plugins/CountryFlag.js',
-    {src: "@/Plugins/MarqueeText.js", mode: 'client'}
+   // {src: "@/Plugins/MarqueeText.js", mode: 'client'}
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
