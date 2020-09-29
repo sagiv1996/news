@@ -96,7 +96,8 @@ export default {
   async fetch() {
     if (this.category) {
       const url = `&pageSize=100&country=${this.$i18n.locale}&category=${this.category}`;
-      const data = await this.$axios.$get(url);
+      const data = await this.$axios.$get(this.$axios.defaults.baseURL + url);
+      alert(JSON.stringify(data))
       this.data = data;
       this.string = null;
     }
@@ -106,7 +107,7 @@ export default {
       if (this.string) {
         this.$fetchState.pending = true;
         const url = `&country=${this.$i18n.locale}&pageSize=20&q=${this.string}`;
-        const data = await this.$axios.$get(url);
+        const data = await this.$axios.$get(this.$axios.defaults.baseURL + url);
         this.$fetchState.pending = false;
         this.data = data;
         this.category = null;
