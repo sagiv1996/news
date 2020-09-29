@@ -49,6 +49,11 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     baseURL: "http://newsapi.org/v2/top-headlines?apiKey=505e647bbabd48d1ba723b85b0f685c6",
+    headers:{
+      common:{
+        referer: "http://localhost:3000/"
+      }
+    }
   },
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
