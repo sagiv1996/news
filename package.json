@@ -9,7 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "gitHub": "git push -u origin master"
+    "gitHub": "git add .; git commit -m 'new change'; git push"
   },
   "dependencies": {
     "@growthbunker/vueflags": "^0.1.9",
