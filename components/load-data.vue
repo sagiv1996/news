@@ -114,7 +114,6 @@ export default {
     },
     updateLocal() {
       localStorage.setItem("category", this.category);
-      this.$fetch();
     },
   },
   beforeMount() {
