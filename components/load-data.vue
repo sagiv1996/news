@@ -35,8 +35,8 @@
       </v-col>
     </v-row>
 
-    <client-only v-if="$fetchState.pending">
-      <v-row align="center" justify="center">
+    <client-only v-if="$fetchState.pending || $fetchState.error">
+      <v-row align="center" justify="center" v-if="$fetchState.pending">
         <v-col v-for="i in 9" :key="i" cols="12" md="6" lg="4">
           <v-skeleton-loader
             class="mx-auto"
@@ -45,11 +45,11 @@
           ></v-skeleton-loader>
         </v-col>
       </v-row>
+      <v-alert type="error" :value="true" v-else-if="$fetchState.error"
+        >error load data + {{ $fetchState.error }}</v-alert
+      >
     </client-only>
 
-    <v-alert type="error" :value="true" v-else-if="$fetchState.error"
-      >error load data + {{$fetchState.error}}</v-alert
-    >
     <v-row
       v-else-if="data.status === 'ok' && data.articles && data.totalResults > 0"
       align="center"
@@ -97,7 +97,7 @@ export default {
     if (this.category) {
       const url = `&pageSize=100&country=${this.$i18n.locale}&category=${this.category}`;
       const data = await this.$axios.$get(this.$axios.defaults.baseURL + url);
-      console.log(data)
+      console.log(data);
       this.data = data;
       this.string = null;
     }

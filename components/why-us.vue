@@ -88,11 +88,13 @@
         Supported countries
       </v-card-title>
 
-        <marquee-text :duration="30">
+        <client-only>
+          <marquee-text :duration="30">
           <span v-for="(locale, index) in $i18n.locales" :key="index" outlined>
             <country-flag :country="locale.code" />
           </span>
         </marquee-text>
+        </client-only>
     </v-card-text>
   </v-card>
 </template>
