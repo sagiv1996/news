@@ -68,6 +68,7 @@
         >
       </v-col>
     </v-row>
+    {{data}}
   </div>
 </template>
 <script>
@@ -115,10 +116,8 @@ export default {
     },
     async search() {
       if (this.string) {
-        this.$fetchState.pending = true;
         const url = `&country=${this.$i18n.locale}&pageSize=20&q=${this.string}`;
         const data = await this.$axios.$get(this.$axios.defaults.baseURL + url);
-        this.$fetchState.pending = false;
         this.data = data;
         this.category = null;
       }
