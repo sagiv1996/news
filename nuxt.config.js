@@ -22,7 +22,7 @@ export default {
   plugins: [
     '@/plugins/rtl.js',
     '@/plugins/CountryFlag.js',
-    {src: "@/Plugins/MarqueeText.js", mode: 'client'}
+   // {src: "@/Plugins/MarqueeText.js", mode: 'client'}
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -47,7 +47,7 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: "http://newsapi.org/v2/top-headlines?apiKey=505e647bbabd48d1ba723b85b0f685c6",
+    baseURL: "https://newsapi.org/v2/top-headlines?apiKey=505e647bbabd48d1ba723b85b0f685c6",
     headers: {
       "Content-type": "application/json"
     }
