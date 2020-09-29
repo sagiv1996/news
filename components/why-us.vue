@@ -63,7 +63,7 @@
 }
 </i18n>
 <template>
-  <v-card dark>
+  <v-card :dark="dark || $vuetify.dark">
     <v-card-title primary-title class="justify-center">
       {{ $t("why-us") }}
     </v-card-title>
@@ -109,5 +109,11 @@ export default {
       "mony",
     ],
   }),
+  props:{
+    dark:{
+      type: Boolean,
+      default: false
+    }
+  }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <load-data />
-    <why-us />
+    <why-us :dark="true"/>
     <pwa />
   </div>
 </template>
