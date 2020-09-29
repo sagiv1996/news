@@ -35,7 +35,7 @@
       </v-col>
     </v-row>
 
-    <client-only v-if="$fetchState.pending">
+    <client-only v-if="load">
       <v-row align="center" justify="center">
         <v-col v-for="i in 9" :key="i" cols="12" md="6" lg="4">
           <v-skeleton-loader
@@ -46,10 +46,6 @@
         </v-col>
       </v-row>
     </client-only>
-
-    <v-alert type="error" :value="true" v-else-if="$fetchState.error"
-      >error load data + {{$fetchState.error}}</v-alert
-    >
     <v-row
       v-else-if="data.status === 'ok' && data.articles && data.totalResults > 0"
       align="center"
@@ -77,6 +73,7 @@
 <script>
 export default {
   data: () => ({
+    load: true,
     category: "general",
     topics: [
       { value: "business", icon: "mdi-handshake-outline" },
@@ -93,6 +90,7 @@ export default {
     data: null,
     string: null,
   }),
+  /*
   async fetch() {
     if (this.category) {
       const url = `&pageSize=100&country=${this.$i18n.locale}&category=${this.category}`;
@@ -102,7 +100,19 @@ export default {
       this.string = null;
     }
   },
+  */
   methods: {
+    async loadData(){
+      if (this.category) {
+      this.load = true
+      const url = `&pageSize=100&country=${this.$i18n.locale}&category=${this.category}`;
+      const data = await this.$axios.$get(this.$axios.defaults.baseURL + url);
+      console.log(data)
+      this.data = data;
+      this.string = null;
+      this.load = false
+    }
+    },
     async search() {
       if (this.string) {
         this.$fetchState.pending = true;
@@ -115,13 +125,14 @@ export default {
     },
     updateLocal() {
       localStorage.setItem("category", this.category);
-      this.$fetch();
+      this.loadData();
     },
   },
   beforeMount() {
     this.category = localStorage.getItem("category")
       ? localStorage.getItem("category")
       : "general";
+      this.loadData();
   },
 };
 </script>
