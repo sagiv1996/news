@@ -97,12 +97,18 @@ export default {
     if (this.category) {
       const url = `&pageSize=100&country=${this.$i18n.locale}&category=${this.category}`;
       const data = await this.$axios.$get(this.$axios.defaults.baseURL + url);
-      console.log(data);
       this.data = data;
       this.string = null;
     }
   },
   methods: {
+    async loadData(){
+      const url = `&pageSize=100&country=${this.$i18n.locale}&category=${this.category}`;
+      const data = await this.$axios.$get(url);
+      this.data = data;
+      this.string = null;
+    }
+    ,
     async search() {
       if (this.string) {
         this.$fetchState.pending = true;
@@ -115,7 +121,7 @@ export default {
     },
     updateLocal() {
       localStorage.setItem("category", this.category);
-      this.$fetch();
+      this.loadData()
     },
   },
   beforeMount() {
