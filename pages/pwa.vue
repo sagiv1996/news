@@ -3,7 +3,6 @@
       <v-flex xs1>
           <v-progress-circular indeterminate size="100" width="1"/>
       </v-flex>
-
   </v-layout>
 </template>
 

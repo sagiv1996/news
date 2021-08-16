@@ -62,41 +62,24 @@
   }
 }
 </i18n>
-<template>
-  <v-card :dark="dark || $vuetify.dark">
-    <v-card-title primary-title class="justify-center">
-      {{ $t("why-us") }}
-    </v-card-title>
-    <v-card-text class="text-center">
-      <v-row justify="space-around" align="start">
-        <v-col v-for="Square in data" :key="Square" cols="12" sm="4" md="2">
-          <v-img
-            :src="'/' + Square + '.gif'"
-            contain
-            :alt="Square + 'gif'"
-            height="150"
-          />
-
-          <div class="text-h6 text-center mb-2">{{ $t(Square)["title"] }}</div>
-          <v-divider class="mb-3" />
-          {{ $t(Square)["text"] }}
-        </v-col>
-      </v-row>
-    </v-card-text>
-    <v-card-text style="direction: ltr">
-      <v-card-title primary-title class="justify-center">
-        Supported countries
-      </v-card-title>
-
-        <no-ssr>
-          <marquee-text :duration="30">
-          <span v-for="(locale, index) in $i18n.locales" :key="index" outlined>
-            <country-flag :country="locale.code" />
-          </span>
-        </marquee-text>
-        </no-ssr>
-    </v-card-text>
-  </v-card>
+<template lang="pug">
+  v-card(:dark='dark || $vuetify.dark' data-aos="zoom-in-down")
+    v-card-title.justify-center(primary-title='' data-aos="fade-up" data-aos-delay="300")
+      | {{ $t(&quot;why-us&quot;) }} 
+    v-card-text.text-center
+      v-row(justify='space-around' align='start')
+        v-col(v-for='Square in data' :key='Square' cols='12' sm='4' md='2')
+          v-img(:src="'/' + Square + '.gif'" contain='' :alt="Square + 'gif'" height='150')
+            .text-h6.text-center.mb-2 {{ $t(Square)[&quot;title&quot;] }}
+            v-divider.mb-3
+              | {{ $t(Square)[&quot;text&quot;] }}
+    v-card-text(style='direction: ltr')
+      v-card-title.justify-center(primary-title='' data-aos="fade-up" data-aos-delay="300")
+        | Supported countries
+      no-ssr
+        marquee-text(:duration='30')
+          span(v-for='(locale, index) in $i18n.locales' :key='index' outlined='')
+            country-flag(:country='locale.code')
 </template>
 
 <script>

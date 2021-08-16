@@ -1,83 +1,48 @@
-<template>
-  <v-card>
-    <v-img
-      :src="article.urlToImage"
-      class="white--text align-end"
-      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.8)"
-      :height="size"
-      contain
-      lazy-src="../no-image.jpg"
-      :alt="article.title"
-    >
-      <v-card-title class="justify-center">{{ article.title }}</v-card-title>
-      <template v-slot:placeholder v-if="article.urlToImage">
-        <v-row class="fill-height ma-0" align="center" justify="center">
-          <v-progress-circular
-            indeterminate
-            color="grey lighten-5"
-          ></v-progress-circular>
-        </v-row>
-      </template>
-    </v-img>
-    <v-card-subtitle class="justify-center">
-      {{ $t("publishedAt") }}
-      {{ article.publishedAt }}
-      {{ article.author }}
-    </v-card-subtitle>
-    <v-card-actions>
-      <v-btn icon @click="show = !show" :disabled="!article.description">
-        <v-icon>{{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}</v-icon>
-      </v-btn>
-      <v-spacer></v-spacer>
-      <v-btn color="purple" text target="_blank" :href="article.url">
-        {{ $t("open") }}
-        <template v-if="article.source.name.split('.').length > 0">{{
-          article.source.name.split(".")[0]
-        }}</template>
-        <template v-else>{{ article.source.name }}</template>
-      </v-btn>
-      <v-spacer></v-spacer>
-      <v-edit-dialog>
-        <v-btn icon>
-          <v-icon>mdi-share</v-icon>
-        </v-btn>
-        <template v-slot:input>
-          <v-card-text>
-            <ShareNetwork
-              v-for="network in networks"
-              :network="network.network"
-              :key="network.network"
-              :url="'http://' + $store.state.host +'/' + $i18n.locale + '/' + getUnicUrl(article)"
-              title="מצאתי כתבה שאני רוצה לשתף אותך!"
-              :description="article.title"
-              quote="יש לי יופי של מאמר בשבילך"
-              :hashtags="
-                article.description
-                  ? article.description.replace(' ', ',')
-                  : null
-              "
-              twitterUser="sagiv"
-            >
-              <v-btn icon>
-                <v-icon :color="network.color">{{ network.icon }}</v-icon>
-              </v-btn>
-            </ShareNetwork>
-          </v-card-text>
-          <v-divider></v-divider>
-        </template>
-      </v-edit-dialog>
-    </v-card-actions>
-    <v-expand-transition>
-      <div v-show="show">
-        <v-divider></v-divider>
-        <v-card-text class="align-center">{{
-          article.description
-        }}</v-card-text>
-      </div>
-    </v-expand-transition>
-  </v-card>
+<template lang="pug">
+  v-card( data-aos="fade-up")
+    v-img.white--text.align-end(:src='article.urlToImage' gradient='to bottom, rgba(0,0,0,.1), rgba(0,0,0,.8)' :height='size' contain='' lazy-src='../no-image.jpg' :alt='article.title')
+      v-card-title.justify-center {{ article.title }}
+      template(v-slot:placeholder='' v-if='article.urlToImage')
+        v-row.fill-height.ma-0(align='center' justify='center')
+          v-progress-circular(indeterminate='' color='grey lighten-5')
+    v-card-subtitle.justify-center
+      | {{ $t(&quot;publishedAt&quot;) }}
+      | {{ article.publishedAt }}
+      | {{ article.author }}
+    v-card-actions
+      v-btn(icon='' @click='show = !show' :disabled='!article.description')
+        v-icon {{ show ? &quot;mdi-chevron-up&quot; : &quot;mdi-chevron-down&quot; }}
+      v-spacer
+      v-btn(color='purple' text='' target='_blank' :href='article.url')
+        | {{ $t(&quot;open&quot;) }}
+        template(v-if="article.source.name.split('.').length > 0")
+          | {{
+          | article.source.name.split(&quot;.&quot;)[0]
+          | }}
+        template(v-else='') {{ article.source.name }}
+      v-spacer
+      v-edit-dialog
+        v-btn(icon='')
+          v-icon mdi-share
+        template(v-slot:input='')
+          v-card-text
+            sharenetwork(v-for='network in networks' :network='network.network' :key='network.network' :url="'http://' + $store.state.host +'/' + $i18n.locale + '/' + getUnicUrl(article)" title='מצאתי כתבה שאני רוצה לשתף אותך!' :description='article.title' quote='יש לי יופי של מאמר בשבילך' :hashtags="\
+            article.description\
+            ? article.description.replace(' ', ',')\
+            : null\
+            " twitteruser='sagiv')
+              v-btn(icon='')
+                v-icon(:color='network.color') {{ network.icon }}
+          v-divider
+    v-expand-transition
+      div(v-show='show')
+        v-divider
+        v-card-text.align-center
+          | {{
+          | article.description
+          | }}
 </template>
-
+  
 <script>
 export default {
   props: { article: Object, size: { type: String, default: "200" } },

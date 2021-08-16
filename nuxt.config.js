@@ -1,5 +1,11 @@
 
 export default {
+
+  server: {
+    port: 3333, // default: 3000
+  },
+
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - news',
@@ -18,14 +24,17 @@ export default {
   css: [
   ],
 
+  vendor: ["aos"],
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     '@/plugins/rtl.js',
     '@/plugins/CountryFlag.js',
-    '@/plugins/axios.js',
-   // {src: "@/Plugins/MarqueeText.js", mode: 'client'}
+    {src: "@/Plugins/MarqueeText.js", mode: 'client'},
+    {src: "@/Plugins/aos.js", mode: 'client'}
   ],
-
+  purgeCSS: {
+    whitelist: ["aos-init", "aos-animate", "data-aos-delay", "data-aos-duration", "fade-up", "zoom-in"],
+},
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
@@ -49,11 +58,6 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     baseURL: "http://newsapi.org/v2/top-headlines?apiKey=505e647bbabd48d1ba723b85b0f685c6",
-    headers:{
-      common:{
-        referer: "http://localhost:3000/"
-      }
-    }
   },
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)

@@ -1,84 +1,40 @@
-<template>
-  <v-app>
-    <v-navigation-drawer
-      v-model="drawer"
-      bottom
-      app
-      :right="$vuetify.rtl"
-      :mini-variant="variant && !$vuetify.breakpoint.mobile"
-      mini-variant-width="100"
-    >
-      <list-country />
-      <v-divider></v-divider>
-      <v-list>
-        <v-list-item>
-          <v-btn
-            icon
-            @click="variant = !variant"
-            :disabled="$vuetify.breakpoint.mobile"
-            v-show="!$vuetify.breakpoint.mobile"
-            x-large
-          >
-            <v-icon
-              v-text="
-                $vuetify.rtl
-                  ? variant
-                    ? 'mdi-arrow-left'
-                    : 'mdi-arrow-right'
-                  : variant
-                  ? 'mdi-arrow-right'
-                  : 'mdi-arrow-left'
-              "
-              x-large
-            />
-          </v-btn>
-          <v-spacer></v-spacer>
-          <v-btn icon @click="darkMode" x-large>
-            <v-icon x-large>mdi-theme-light-dark</v-icon>
-          </v-btn>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar app>
-      <v-btn icon @click="drawer = !drawer">
-        <v-icon x-large color="primary">mdi-cogs</v-icon>
-      </v-btn>
-      <v-spacer></v-spacer>
-      <v-btn icon :to="localePath('/')" nuxt>
-        <v-avatar>
-          <img :src="$icon(512)" alt="icon news" />
-        </v-avatar>
-      </v-btn>
-    </v-app-bar>
-    <v-main>
-      <v-container fluid>
-        <v-btn
-          v-scroll="onScroll"
-          fab
-          fixed
-          bottom
-          :right="!$vuetify.rtl"
-          :left="$vuetify.rtl"
-          color="primary"
-          @click="$vuetify.goTo(0)"
-          v-show="btnTop"
-        >
-          <v-icon>mdi-arrow-up</v-icon>
-        </v-btn>
-        <nuxt v-if="$nuxt.isOnline" />
-        <v-alert
-          type="primary"
-          :value="true"
-          v-else-if="$nuxt.isOffline"
-          class="text-left"
-        >
-          There is no internet connection
-        </v-alert>
-        <my-footer />
-      </v-container>
-    </v-main>
-  </v-app>
+<template lang="pug">
+  v-app
+    v-navigation-drawer(v-model='drawer' bottom='' app='' :right='$vuetify.rtl' :mini-variant='variant && !$vuetify.breakpoint.mobile' mini-variant-width='100')
+      list-country
+        v-divider
+        v-list
+          v-list-item
+            v-btn(icon='' @click='variant = !variant' :disabled='$vuetify.breakpoint.mobile' v-show='!$vuetify.breakpoint.mobile' x-large='')
+              v-icon(v-text="\
+              $vuetify.rtl\
+              ? variant\
+              ? 'mdi-arrow-left'\
+              : 'mdi-arrow-right'\
+              : variant\
+              ? 'mdi-arrow-right'\
+              : 'mdi-arrow-left'\
+              " x-large='')
+            v-spacer
+            v-btn(icon='' @click='darkMode' x-large='')
+              v-icon(x-large='') mdi-theme-light-dark
+    v-app-bar(app='')
+      v-btn(icon='' @click='drawer = !drawer')
+        v-icon(x-large='' color='primary') mdi-cogs
+      v-spacer
+      v-btn(icon='' :to="localePath('/')" nuxt='')
+        v-avatar
+          img(:src='$icon(512)' alt='icon news')
+    v-main
+      v-container(fluid='')
+        v-btn(v-scroll='onScroll' fab='' fixed='' bottom='' :right='!$vuetify.rtl' :left='$vuetify.rtl' color='primary' @click='$vuetify.goTo(0)' v-show='btnTop')
+          v-icon mdi-arrow-up
+        nuxt(v-if='$nuxt.isOnline')
+        v-alert.text-left(type='primary' :value='true' v-else)
+          | There is no internet connection
+        my-footer
 </template>
+
 
 <script>
 import json from "../locales/locale.json";
